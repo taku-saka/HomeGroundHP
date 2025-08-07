@@ -1,8 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 const Contact: React.FC = () => {
+  const [contactFormData, setContactFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const isFormValid = contactFormData.name.trim() !== "" && contactFormData.email.trim() !== "" && contactFormData.subject.trim() !== "" && contactFormData.message.trim() !== "";
+
+  const handleContactInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setContactFormData({ ...contactFormData, [name]: value });
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const res = await fetch("https://home-ground9.com/api/contact_db.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(contactFormData),
+    });
+
+    if (res.ok) {
+      alert(
+        "お問い合わせありがとうございます。"
+      );
+      setContactFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      alert("送信に失敗しました。");
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-moss text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +74,7 @@ const Contact: React.FC = () => {
               </div> */}
 
               {/*お問い合わせフォーム*/}
-              <form className="flex flex-col">
+              <form onSubmit={handleContactSubmit} className="flex flex-col">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label
@@ -50,8 +86,12 @@ const Contact: React.FC = () => {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      value={contactFormData.name}
+                      onChange={handleContactInputChange}
                       className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
-                      placeholder=""
+                      placeholder="お名前を入力してください"
+                      maxLength={30}
                     />
                   </div>
                   <div>
@@ -64,8 +104,12 @@ const Contact: React.FC = () => {
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      value={contactFormData.email}
+                      onChange={handleContactInputChange}
                       className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
-                      placeholder="user@example.com"
+                      placeholder="メールアドレスを入力してください"
+                      maxLength={50}
                     />
                   </div>
                 </div>
@@ -80,8 +124,12 @@ const Contact: React.FC = () => {
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
+                    value={contactFormData.subject}
+                    onChange={handleContactInputChange}
                     className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
-                    placeholder=""
+                    placeholder="件名を入力してください"
+                    maxLength={30}
                   />
                 </div>
 
@@ -95,17 +143,27 @@ const Contact: React.FC = () => {
                   <textarea
                     id="message"
                     rows={5}
+                    name="message"
+                    value={contactFormData.message}
+                    onChange={handleContactInputChange}
                     className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
                     placeholder="お問い合わせ内容を入力してください"
+                    maxLength={1500}
                   ></textarea>
                 </div>
 
                 <div className="flex justify-center">
                   <button
                     type="submit"
-                    className="bg-white text-moss-dark px-6 py-3 rounded-md font-medium hover:bg-greige transition-colors duration-300"
+                    disabled={!isFormValid}
+                    className={`px-6 py-3 rounded-md font-medium flex items-center justify-center gap-2 transition-colors duration-300 ${
+                      isFormValid
+                        ? "bg-white text-moss-dark hover:bg-greige"
+                        : "bg-gray-400 text-gray-800 cursor-not-allowed"
+                    }`}
                   >
-                    入力内容を確認する
+                    <Send size={18} />
+                    問い合わせ内容を送信
                   </button>
                 </div>
               </form>
