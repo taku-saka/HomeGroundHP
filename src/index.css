@@ -32,3 +32,12 @@
 .hover-pause:hover .slide-right {
   animation-play-state: paused;
 }
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: #1f2d1d !important; /* moss の暗い色に合わせる */
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

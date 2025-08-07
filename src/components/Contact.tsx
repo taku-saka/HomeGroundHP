@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
                       name="name"
                       value={contactFormData.name}
                       onChange={handleContactInputChange}
-                      className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
+                      className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white autofill:bg-moss autofill:text-white"
                       placeholder="お名前を入力してください"
                       maxLength={30}
                     />
@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
                       name="email"
                       value={contactFormData.email}
                       onChange={handleContactInputChange}
-                      className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
+                      className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white autofill:bg-moss autofill:text-white"
                       placeholder="メールアドレスを入力してください"
                       maxLength={50}
                     />
@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
                     name="subject"
                     value={contactFormData.subject}
                     onChange={handleContactInputChange}
-                    className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
+                    className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white autofill:bg-moss autofill:text-white"
                     placeholder="件名を入力してください"
                     maxLength={30}
                   />
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                     name="message"
                     value={contactFormData.message}
                     onChange={handleContactInputChange}
-                    className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white"
+                    className="w-full px-4 py-2 rounded bg-moss border border-moss-light focus:outline-none focus:ring-2 focus:ring-white text-white autofill:bg-moss autofill:text-white"
                     placeholder="お問い合わせ内容を入力してください"
                     maxLength={1500}
                   ></textarea>
