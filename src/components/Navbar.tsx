@@ -51,13 +51,13 @@ const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-x-hidden ${
         isScrolled || isDetailPage
           ? "bg-moss py-3 shadow-md"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="w-full px-4">
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0 w-64 md:w-52 lg:w-60">
             <a
@@ -103,17 +103,17 @@ const Navbar: React.FC = () => {
           </nav>
 
           <button
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-white focus:outline-none flex-shrink-0 ml-1"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
           </button>
         </div>
       </div>
 
       {isMenuOpen && (
-        <nav className="md:hidden bg-moss-dark py-4 px-4 mt-3">
+        <nav className="md:hidden bg-moss-dark py-4 px-4 mt-3 w-full">
           <div className="flex flex-col space-y-4">
             {navItems.map((item) =>
               item === "CREATORS" || item === "STUDIO" ? (

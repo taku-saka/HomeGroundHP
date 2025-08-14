@@ -1,13 +1,42 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Clock, Phone, Mic } from "lucide-react";
+import CollapsibleText from "../components/CollapsibleText";
 
 const Studio: React.FC = () => {
   const studioFeatures = [
     {
       icon: Mic,
       title: "使用機材",
-      description: "COMING SOON..",
+      description: `【Mic】
+Sony C-100
+RODE THE CLASSIC 2
+Soundelux U99 Vintage※
+Dpa 4006 stereo※
+AEA R88A※
+
+【Mic pre】
+
+Langevin Dual Mic Pre with EQ
+Avalon Design V5 SILVER
+
+【Comp】
+AMEK 9098CL
+focusrite isa131
+
+【EQ】
+Manley MASSIVE PASSIVE STEREO EQ Mastering ver.(Only Mastering)
+
+【Monitor】
+Genelec 1031a
+
+【DAW】
+Protools 2021.6
+STUDIO ONE
+UA Apollo
+PrismSound
+
+※要予約機材`,
     },
     {
       icon: Clock,
@@ -69,7 +98,7 @@ const Studio: React.FC = () => {
                       <h3 className="text-xl font-medium text-moss-dark mb-2">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <CollapsibleText title="詳細を見る" text={feature.description} />
                     </div>
                   </div>
                 ))}

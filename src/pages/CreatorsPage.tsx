@@ -39,11 +39,11 @@ const CreatorsPage: React.FC = () => {
                 viewport={{ once: true }}
                 className="bg-white rounded-lg overflow-hidden shadow-lg"
               >
-                <div className="relative max-width aspect-w-4 aspect-h-3">
+                <div className="relative w-full aspect-[17/23] overflow-hidden">
                   <img
                     src={creator.imageUrl}
                     alt={creator.name}
-                    className="block m-auto w-1/2 md:w-full md:h-full object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">

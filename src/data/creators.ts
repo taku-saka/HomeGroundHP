@@ -11,7 +11,7 @@ export const creators: Creators[] = [
   {
     id: 2,
     name: "Toshi",
-    imageUrl: "/img/2025-05-18 2.28の画像.jpg",
+    imageUrl: "/creators/toshi.jpg",
     role: "Producer",
     description: "",
   },
