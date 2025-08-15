@@ -69,19 +69,19 @@ PrismSound
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl font-serif font-bold text-moss-dark mb-6">
+              <h2 className="text-2xl font-serif font-bold text-moss-dark text-center mb-6">
                 充実した設備と快適な空間
                 <br />
                 <p className="text-3xl font-bold">【ソラノウエラボ】</p>
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 text-center mb-8">
                 プロフェッショナルなサウンドを実現する最新鋭の機材と、本格的なスタジオでは味わえないクリエイティブな発想を引き出す快適な空間をご用意しております。
                 <br />
                 <br />
