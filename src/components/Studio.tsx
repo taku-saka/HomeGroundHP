@@ -2,15 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-const Creators: React.FC = () => {
+const Studio: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="creators" className="py-20  bg-gray-50">
+    <section id="studio" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-moss-dark mb-4">
-            CREATOR
+            STUDIO
           </h2>
           <div className="w-20 h-1 bg-moss mx-auto mb-6"></div>
         </div>
@@ -24,7 +24,7 @@ const Creators: React.FC = () => {
             className="relative"
           >
             <img
-              src="/creators/creator_section_image.jpg"
+              src="/studio/studio-hero.jpg"
               alt="Creator"
               className="rounded-lg shadow-lg w-full h-auto object-cover"
             />
@@ -38,15 +38,15 @@ const Creators: React.FC = () => {
             className="flex flex-col items-center md:items-start"
           >
             <p className="text-gray-600 mb-8 text-lg text-center md:text-left">
-              様々な分野において経験豊富なクリエイターチームG/amm（グラム）がお客様のご要望を踏まえ、祐逸無二な理想のサウンドを実現します。
+              プロフェッショナルなサウンドを実現する最新鋭の機材と、本格的なスタジオでは味わえないクリエイティブな発想を引き出す快適な空間をご用意しております。
             </p>
             <motion.button
-              onClick={() => navigate("/creators")}
+              onClick={() => navigate("/studio")}
               className="bg-moss text-white px-8 py-3 rounded-full hover:bg-moss-dark transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              クリエイター一覧を見る
+              スタジオの詳細を見る
             </motion.button>
           </motion.div>
         </div>
@@ -55,4 +55,4 @@ const Creators: React.FC = () => {
   );
 };
 
-export default Creators;
+export default Studio;

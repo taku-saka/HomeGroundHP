@@ -12,7 +12,7 @@ export interface Project {
   client: string;
   description: string;
   imageUrl: string;
-  category: "Artists" | "Company" | "YouTube";
+  category: "Artists" | "Company" | "Influencer";
 }
 
 export interface NewsItem {
