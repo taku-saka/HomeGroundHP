@@ -8,10 +8,10 @@ const Hero: React.FC = () => {
   const artists = projects
     .filter((project) => project.category === "Artists")
     .reverse();
-  const youtube = projects
-    .filter((project) => project.category === "YouTube")
+  const influencer = projects
+    .filter((project) => project.category === "Influencer")
     .reverse();
-  const filtered = [...artists, ...youtube];
+  const filtered = [...artists, ...influencer];
   const [visibleImages, setVisibleImages] = useState<Project[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 

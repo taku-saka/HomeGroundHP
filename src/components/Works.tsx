@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 
-type Category = "Artists" | "Company" | "YouTube";
+type Category = "Artists" | "Company" | "Influencer";
 
 const Works: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("Artists");
-  const categories: Category[] = ["Artists", "Company", "YouTube"];
+  const categories: Category[] = ["Artists", "Company", "Influencer"];
 
   const getFilteredProjects = () =>
     projects.filter((project) => project.category === activeCategory);

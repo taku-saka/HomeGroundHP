@@ -13,8 +13,9 @@ import Works from "./components/Works";
 import Creators from "./components/Creators";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Studio from "./pages/Studio";
+import Studio from "./components/Studio";
 import CreatorsPage from "./pages/CreatorsPage";
+import StudioPage from "./pages/Studio";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -68,6 +69,7 @@ function HomePage() {
       <About />
       <News />
       <Works />
+      <Studio />
       <Creators />
       <Contact />
     </>
@@ -83,8 +85,13 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+<<<<<<< HEAD
           <Route path="/studio/" element={<Studio />} />
           <Route path="/creators/" element={<CreatorsPage />} />
+=======
+          <Route path="/studio" element={<StudioPage />} />
+          <Route path="/creators" element={<CreatorsPage />} />
+>>>>>>> origin/main
         </Routes>
         <Footer />
       </div>
