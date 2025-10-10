@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import {
   Routes,
   Route,
@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import Studio from "./components/Studio";
 import CreatorsPage from "./pages/CreatorsPage";
 import StudioPage from "./pages/Studio";
+import Banners from "./components/Banners";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -24,7 +25,7 @@ function ScrollToTop() {
     if (!location.hash) {
       window.scrollTo(0, 0);
     }
-  }, [location.pathname]);
+  }, [location.pathname, location.hash]);
 
   return null;
 }
@@ -49,11 +50,12 @@ function HomePage() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute("href");
+        const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+        if (!targetId) return;
         if (targetId === "#") return;
 
         const targetElement = document.querySelector(targetId);
-        if (targetElement) {
+        if (targetElement && targetElement instanceof HTMLElement) {
           window.scrollTo({
             top: targetElement.offsetTop,
             behavior: "smooth",
@@ -71,6 +73,7 @@ function HomePage() {
       <Works />
       <Studio />
       <Creators />
+      <Banners />
       <Contact />
     </>
   );
@@ -85,13 +88,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-<<<<<<< HEAD
-          <Route path="/studio/" element={<Studio />} />
+          <Route path="/studio/" element={<StudioPage />} />
           <Route path="/creators/" element={<CreatorsPage />} />
-=======
-          <Route path="/studio" element={<StudioPage />} />
-          <Route path="/creators" element={<CreatorsPage />} />
->>>>>>> origin/main
         </Routes>
         <Footer />
       </div>

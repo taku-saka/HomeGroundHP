@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../data/projects";
 import { Project } from "../types";
 
 const Hero: React.FC = () => {
   // Create an array of 24 images by repeating the projects array
-  const artists = projects
-    .filter((project) => project.category === "Artists")
-    .reverse();
-  const influencer = projects
-    .filter((project) => project.category === "Influencer")
-    .reverse();
-  const filtered = [...artists, ...influencer];
+  const filtered = useMemo(() => {
+    const artists = projects
+      .filter((project) => project.category === "Artists")
+      .reverse();
+    const influencer = projects
+      .filter((project) => project.category === "Influencer")
+      .reverse();
+    return [...artists, ...influencer];
+  }, []);
   const [visibleImages, setVisibleImages] = useState<Project[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -29,6 +31,7 @@ const Hero: React.FC = () => {
 
   // スライド切り替え
   useEffect(() => {
+    if (visibleImages.length === 0) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % visibleImages.length);
     }, 2000);
