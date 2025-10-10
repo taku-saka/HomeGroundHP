@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
 } from "react-router-dom";
+import CustomRouter from "./components/CustomRouter";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -76,19 +76,19 @@ function HomePage() {
 
 function App() {
   return (
-    <Router>
+    <CustomRouter>
       <ScrollToTop />
       <ScrollToSection />
       <div className="font-sans">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/studio" element={<Studio />} />
-          <Route path="/creators" element={<CreatorsPage />} />
+          <Route path="/studio/" element={<Studio />} />
+          <Route path="/creators/" element={<CreatorsPage />} />
         </Routes>
         <Footer />
       </div>
-    </Router>
+    </CustomRouter>
   );
 }
 

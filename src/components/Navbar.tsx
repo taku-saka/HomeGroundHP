@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isDetailPage =
-    location.pathname === "/studio" || location.pathname === "/creators";
+    location.pathname === "/studio/" || location.pathname === "/creators/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,8 +26,8 @@ const Navbar: React.FC = () => {
   const handleNavigation = (item: string, path: string) => {
     if (isDetailPage) {
       if (
-        (item === "STUDIO" && location.pathname === "/studio") ||
-        (item === "CREATORS" && location.pathname === "/creators")
+        (item === "STUDIO" && location.pathname === "/studio/") ||
+        (item === "CREATORS" && location.pathname === "/creators/")
       ) {
         window.scrollTo({
           top: 0,
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
                 item === "CREATORS" || item === "STUDIO" ? (
                   <Link
                     key={item}
-                    to={`/${item.toLowerCase()}`}
+                    to={`/${item.toLowerCase()}/`}
                     onClick={() => handleNavigation(item, "")}
                     className="text-white hover:text-greige transition-colors duration-200 font-medium whitespace-nowrap"
                   >
