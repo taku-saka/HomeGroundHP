@@ -38,7 +38,7 @@ const Banners: React.FC = () => {
             </a>
 
             <a
-            // href=""
+            href="https://www.instagram.com/homeprint2025?igsh=MW1kcGxybndpZHV2MA%3D%3D&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
             className="block"
